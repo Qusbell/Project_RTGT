@@ -7,7 +7,7 @@ public class TestConnecterForPlayerToController : MonoBehaviour
 {
     void Start()
     {
-        IAttemptable target = FindAnyObjectByType<GamePawn>();
+        IAttemptable target = FindAnyObjectByType<GridPawn>();
         PlayerController controller = GetComponent<PlayerController>();
 
         if (target != null) { controller?.Possess(target); }

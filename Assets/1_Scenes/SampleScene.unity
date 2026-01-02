@@ -710,7 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 7b7486295bb8b7849aff3c22a0f2a8d1, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 84e1574c6296b0444abeffdb6e1e7f12, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 759321854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7892c3adac1405f498ada2ce7736aead, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c8ace5f599b8444e93a2579d9ce93bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1013296716
@@ -1098,6 +1098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1332683557}
   - component: {fileID: 1332683558}
+  - component: {fileID: 1332683559}
   m_Layer: 0
   m_Name: Grid Tiles
   m_TagString: Untagged
@@ -1134,6 +1135,18 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &1332683559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332683556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2924e2e45c543468e70b89f469c9d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1365321048
 GameObject:
   m_ObjectHideFlags: 0
