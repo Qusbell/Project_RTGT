@@ -21,28 +21,30 @@ public class PlayerController : MonoBehaviour, IPlayerControl
     // ==== Methods ==== //
 
     /// <summary>
-    /// Invoke Events 옵션을 통한 방향 입력 처리
+    /// Invoke Events 옵션을 통한 방향 입력 처리 |
+    /// 현재 키보드 방식만 지원하고 있는 것으로 생각됨
     /// </summary>
     /// <param name="context">방향 정보</param>
     public void OnDirectionalAction(InputAction.CallbackContext context)
     {
         Vector2 inputVec = context.ReadValue<Vector2>();
-        Debug.Log($"[PlayerController] : {context.ReadValue<Vector2>()}");
+        //Debug.Log($"[PlayerController] : {context.ReadValue<Vector2>()}");
 
         // <- Player Turn
         // <- Charge Start
 
-        // 모든 키를 뗐을 때
+        // 모든 키를 뗐을 때에만 작동 (Release) --> Custom : LastInputPriorityComposite 참조 (Keboard)
+        // ToDo : 대각선 방향인 경우, 반드시 직각 방향으로만 AttemptAction하도록 변경 필요 --> GamePad의 Stick 등
         if (inputVec == Vector2.zero)
         {
             // Int값으로 변환
-            Vector3Int vector3Int = Vector3Int.zero;
-            vector3Int.x = Mathf.RoundToInt(prevVec.x);
-            vector3Int.y = Mathf.RoundToInt(prevVec.y);
+            Vector2Int vector2Int = Vector2Int.zero;
+            vector2Int.x = Mathf.RoundToInt(prevVec.x);
+            vector2Int.y = Mathf.RoundToInt(prevVec.y);
 
             // 행동 시도
             // Release
-            m_targetPlayer?.AttemptAction(vector3Int);
+            m_targetPlayer?.AttemptAction(vector2Int);
         }
 
         // 이전 벡터값 갱신

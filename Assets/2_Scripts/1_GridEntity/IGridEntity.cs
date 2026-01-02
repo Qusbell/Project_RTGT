@@ -9,10 +9,15 @@ public interface IGridEntity : IEncounterable
     /// <summary>
     /// transform.root에 존재하는 Grid 관리자
     /// </summary>
-    public GridManager GridManager { get; }
+    public GridLogicManager GridManager { get; }
 
     /// <summary>
-    /// 해당 개체가 위치한 Grid 상에서의 Logical 좌표
+    /// Grid 상 Logical 좌표
     /// </summary>
     public Vector2Int GridPos { get; set; }
+
+    /// <summary>
+    /// World 상 Visual 좌표
+    /// </summary>
+    public Vector3 WorldPos { get; set; }
 }

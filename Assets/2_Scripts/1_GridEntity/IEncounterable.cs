@@ -10,6 +10,6 @@ public interface IEncounterable
     /// 행동자(GridPawn)가 피동자(IEncounterable)가 존재하는 Grid로 진입하려 할 때 발생하는 동작
     /// </summary>
     /// <param name="actor">행동자(GridPawn)</param>
-    /// <returns>피동자와 행동자 간의 충돌이 발생하는지 여부</returns>
+    /// <returns>피동자와 행동자 간의 충돌이 발생하는지 여부. true=충돌 발생. false=충돌 미발생</returns>
     public bool EncounteredBy(GridPawn actor);
 }
