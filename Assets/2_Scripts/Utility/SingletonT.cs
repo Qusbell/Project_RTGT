@@ -9,10 +9,10 @@ public class SingletonT<T> : MonoBehaviour where T : MonoBehaviour
     private static T instance;
 
     /// <summary>
-    /// Instance 접근자.
+    /// 인스턴스 접근자.
     /// I로 축약해서 사용
     /// </summary>
-    public static T Instance
+    public static T I
     {
         get
         {

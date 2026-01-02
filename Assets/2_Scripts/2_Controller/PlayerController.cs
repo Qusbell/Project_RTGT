@@ -8,10 +8,16 @@ public class PlayerController : MonoBehaviour, IPlayerControl
     // ==== Fields ==== //
 
     /// <summary>
-    /// 대상이 될 Player
+    /// 대상이 될 Player |
+    /// '행동 시도'가 가능한 개체
     /// </summary>
     private IAttemptable m_targetPlayer;
-     
+
+    /// <summary>
+    /// 이전 벡터값
+    /// </summary>
+    private Vector2 prevVec = Vector2.zero;
+
     // ==== Methods ==== //
 
     /// <summary>
@@ -20,12 +26,27 @@ public class PlayerController : MonoBehaviour, IPlayerControl
     /// <param name="context">방향 정보</param>
     public void OnDirectionalAction(InputAction.CallbackContext context)
     {
-        // 입력 벡터 값 읽기
         Vector2 inputVec = context.ReadValue<Vector2>();
+        Debug.Log($"[PlayerController] : {context.ReadValue<Vector2>()}");
 
-        // 임시 : 입력 started 시에만 시도
-        // ToDo : 특정 방향 입력 도중, 다른 방향의 입력이 들어올 경우 -> Last Input Priority 처리
-        if (context.started) { m_targetPlayer?.Attempt(inputVec); }
+        // <- Player Turn
+        // <- Charge Start
+
+        // 모든 키를 뗐을 때
+        if (inputVec == Vector2.zero)
+        {
+            // Int값으로 변환
+            Vector3Int vector3Int = Vector3Int.zero;
+            vector3Int.x = Mathf.RoundToInt(prevVec.x);
+            vector3Int.y = Mathf.RoundToInt(prevVec.y);
+
+            // 행동 시도
+            // Release
+            m_targetPlayer?.AttemptAction(vector3Int);
+        }
+
+        // 이전 벡터값 갱신
+        prevVec = inputVec;
     }
 
 
